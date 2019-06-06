@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List Articles
+Route::get('articles', 'ArticleController@index');
+
+//Get a article
+Route::get('article/{id}', 'ArticleController@show');
+
+//Create new article
+Route::post('article','ArticleController@store');
+
+//Update article
+Route::put('article','ArticleController@store');
+
+//Delete article
+Route::delete('article/{id}','ArticleController@destroy');
